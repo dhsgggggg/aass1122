@@ -41,7 +41,7 @@ sython.start()
 @sython.on(events.NewMessage)
 async def join_channel(event):
     try:
-        await sython(JoinChannelRequest("@Source_BLACK1"))
+        await sython(JoinChannelRequest("@Source_chithon 1"))
     except BaseException:
         pass
         
@@ -93,7 +93,7 @@ time_bio = ["off"]
 
 async def join_channel():
     try:
-        await sython(JoinChannelRequest("@Source_BLACK1"))
+        await sython(JoinChannelRequest("@Source_chithon 1"))
     except BaseException:
         pass
 
@@ -107,7 +107,7 @@ async def _(event):
             if normal in normzltext:
                 namefont = namerzfont[normzltext.index(normal)]
                 HM = HM.replace(normal, namefont)
-        name = f"𝐛𝐥𝐚𝐜𝐤 | {HM}"
+        name = f"chithon  | {HM}"
         LOGS.info(name)
         try:
             await sython(
@@ -131,7 +131,7 @@ async def _(event):
             if normal in normzltext:
                 namefont = namerzfont[normzltext.index(normal)]
                 HM = HM.replace(normal, namefont)
-        bio = f"𝐛𝐥𝐚𝐜𝐤 |️ {HM}"
+        bio = f"chithon  |️ {HM}"
         LOGS.info(bio)
         try:
             await sython(
@@ -228,7 +228,7 @@ async def _(event):
     await event.delete()
     pic = await rr9r7.download_media()
     await sython.send_file(
-        "me", pic, caption=f"تـم حفظ الصورة او الفيديو الذاتي هنا : 𝐛𝐥𝐚𝐜𝐤"
+        "me", pic, caption=f"تـم حفظ الصورة او الفيديو الذاتي هنا : chithon "
     )
 
 
@@ -285,7 +285,7 @@ async def gucast(event):
             "عند استخدام هذا الأمر يجب الرد على الرسالة !"
         )
         return
-    roz = await event.edit(" جارِ الاذاعة يا حلو ..")
+    roz = await event.edit(" جاري الاذاعه..")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -456,12 +456,12 @@ async def _(event):
     end = datetime.datetime.now()
     ms = (end - start).microseconds / 1000
     await event.edit(f'''
-♔ 𝐛𝐥𝐚𝐜𝐤 𝐢𝐬 𝐰𝐨𝐫𝐤𝐢𝐧𝐠
+♔ ابشر بي الفحص
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
-❖╎𝐰𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐬𝐨𝐮𝐫𝐜𝐞 𝐛𝐥𝐚𝐜𝐤
-❖╎𝐝𝐞𝐯𝐥𝐨 : hussam.fa
-❖╎𝐜𝐡𝐚𝐧𝐧𝐞𝐥 : @saythonh
-❖╎𝐯𝐞𝐫𝐬𝐢𝐨𝐧 : 2.7 - revised 
+❖╎  سورس شيثون الاول في الوطن العربي
+❖╎developer  : @D_1_D_S
+❖╎Source channel  : @special_anime9
+❖╎System : 1.2.1
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 ''')
 
@@ -577,7 +577,7 @@ async def _(event):
     end = datetime.datetime.now()
     res = (end - start).microseconds / 1000
     await event.edit(f"""**-- -- -- -- -- -- -- -- -- --
-𝐛𝐥𝐚𝐜𝐤 - 𝗵𝘂𝘀𝘀𝗮𝗺
+chithon  - 𝗵𝘂𝘀𝘀𝗮𝗺
 - البنك : `{res}`
 -- -- -- -- -- -- -- -- -- --**"""
                      )
@@ -715,7 +715,7 @@ async def _(event):
 async def _(event):
 
     await event.edit("**جاري تجميع النقاط**")
-    joinu = await sython(JoinChannelRequest('BLACK'))
+    joinu = await sython(JoinChannelRequest('chithon '))
     channel_entity = await sython.get_entity(bot_usernameee)
     await sython.send_message(bot_usernameee, '/start')
     await asyncio.sleep(4)
@@ -759,7 +759,7 @@ async def _(event):
 async def _(event):
 
     await event.edit("**جاري تجميع النقاط**")
-    joinu = await sython(JoinChannelRequest('BLACK'))
+    joinu = await sython(JoinChannelRequest('chithon '))
     channel_entity = await sython.get_entity(bot_usernameeee)
     await sython.send_message(bot_usernameeee, '/start')
     await asyncio.sleep(4)
@@ -800,5 +800,5 @@ async def _(event):
 
 
 
-print("♦️ black is Running ♦️")
+print("♦️ chithon  is Running ♦️")
 sython.run_until_disconnected()
