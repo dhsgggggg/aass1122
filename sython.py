@@ -285,7 +285,7 @@ async def gucast(event):
             "عند استخدام هذا الأمر يجب الرد على الرسالة !"
         )
         return
-    roz = await event.edit("جارِ الاذاعة ..")
+    roz = await event.edit(" جارِ الاذاعة يا حلو ..")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
