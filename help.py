@@ -1,4 +1,4 @@
-commands = Arabic source Shaython
+commands = "قائمة الأوامر في chithon"
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
 .م1 ◈ لعرض اوامر الحساب
