@@ -458,9 +458,9 @@ async def _(event):
     await event.edit(f'''
 ♔ ابشر بي الفحص
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
-❖╎  سورس شيثون الاول في الوطن العربي
+❖╎   سورس سيثون الاولي بدء
 ❖╎developer  : @D_1_D_S
-❖╎Source channel  : @special_anime9
+❖╎Source channel  : 
 ❖╎System : 1.2.1
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 ''')
