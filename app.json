@@ -1,8 +1,2 @@
 {"name":"شيثون 1.2","description":" اهلا بكم في تنصيب سورس شيثون الجديد و االمطور !","logo":"https://te.legra.ph/file/c2f3b3f255f2f876f8e48.jpg","stack":"container","repository":"https://t.me/asewef","keywords":["python","chatbot","telegrambot"],"website":"https://t.me/special_anime9","env":{"APP_ID":{"description":"الايـبـي ايــدي","value":"","required":true},"APP_HASH":{"description":"الايـبـي هــاش","value":"","required":true},"TERMUX":{"description":"كود التيرمكس","value":"","required":true},"TOKEN":{"description":"توكن البوت","value":"","required":true},"BOT_USERNAME":{"description":"يوزر البوت بدون ـ@ـ","value":"","required":true}}} },
-    "TZ": {
-      "description": "المنطقه الزمنيه من القارة الخاصه بك وعاصمه بلدك يجب ان يكون اول حرف كبير",
-      "value": "Asia/Baghdad",
-      "required": false
-    }
-
-  "addons": [{
+   
