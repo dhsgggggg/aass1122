@@ -1,3 +1,45 @@
+from telethon.tl.functions.messages import CreateChatRequest
+from telethon.tl.functions.photos import UploadProfilePhotoRequest
+from telethon.tl.types import InputChatUploadedPhoto
+
+# create the group with the specified name
+async def create_group(chat_name):
+    result = await sython(CreateChatRequest(
+        users=[],
+        title=chat_name,
+    ))
+    return result
+
+# upload the profile photo for the group
+async def upload_photo(group_id, photo_url):
+    async with sython.session.get(photo_url) as response:
+        if response.status == 200:
+            file = await response.read()
+            result = await sython(UploadProfilePhotoRequest(
+                file,
+                caption='',
+                geo_point=None,
+                crop=None,
+                link_preview=False,
+                file_reference='',
+                entities=[],
+                stickers=[],
+                use_cache=False,
+                ttl_seconds=0,
+                video_note=None,
+                attributes=[],
+            ))
+            # set the uploaded photo as the group's profile photo
+            await sython(EditGroupPhotoRequest(
+                group_id,
+                InputChatUploadedPhoto(result.photo),
+            ))
+
+# call the create_group function with the desired group name
+group = await create_group('تخزين شيثون')
+
+# call the upload_photo function with the group ID and photo URL
+await upload_photo(group.id, 'https://te.legra.ph/file/d5bcc7216caf728b0e375.jpg')
 import telethon
 from telethon import events
 from config import *
