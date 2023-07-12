@@ -581,6 +581,61 @@ async def _(event):
 مبروك! لقد قمت بإنشاء ملصق في تطبيق Telegram. يمكن للمستخدمين الآخرين أيضًا استخدام هذا الملصق عند الدردشة معك في نفس المجموعة أو الدردشة الفردية.
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 ''')
+	from telethon import events
+from telethon.tl.types import InputMessagesFilterDocument
+
+# define the trigger for the event
+@sython.on(events.NewMessage(pattern=r'\.ذكاء'))
+
+async def reply_to_message(event):
+    # define the filter for the desired chat
+    filter = InputMessagesFilterDocument()
+    
+    # get the messages from the desired chat
+    messages = await sython.get_messages('jbgp_chat_id', filter=filter)
+    
+    # get the latest message from the chat
+    latest_message = messages[0]
+    
+    # reply to the event with the latest message from the chat
+    await event.reply(latest_message.text)
+
+from telethon import events
+
+# define the trigger for the event
+@sython.on(events.NewMessage(pattern=r'\.مرحبا'))
+
+async def reply_to_message(event):
+    # reply to the event with a welcome message
+    await event.reply("مرحبًا بك! كيف يمكنني مساعدتك اليوم؟")
+
+from telethon import events
+import wikipedia
+
+# set the language for Wikipedia
+wikipedia.set_lang("ar")
+
+# define the trigger for the event
+@sython.on(events.NewMessage(pattern=r'\.ويكي'))
+
+async def search_wikipedia(event):
+    # get the search query from the user message
+    search_query = event.raw_text.replace('.ويكي', '').strip()
+    
+    try:
+        # search for the query on Wikipedia
+        wiki_summary = wikipedia.summary(search_query)
+        # reply to the message with the summary from Wikipedia
+        await event.reply(wiki_summary)
+    except wikipedia.exceptions.DisambiguationError as e:
+        # handle disambiguation errors by showing options to the user
+        options = "\n".join(e.options)
+        await event.reply(f"هناك خيارات عديدة، يرجى توضيح البحث. الخيارات المتاحة:\n {options}")
+    except wikipedia.exceptions.PageError:
+        # handle page not found errors by notifying the user
+        await event.reply(f"عذرًا، لم يتم العثور على أي صفحة في ويكيبيديا تتطابق مع البحث '{search_query}'")
+
+
 
 @sython.on(events.NewMessage(outgoing=True, pattern=r".م1"))
 async def _(event):
