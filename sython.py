@@ -1,45 +1,3 @@
-from telethon.tl.functions.messages import CreateChatRequest
-from telethon.tl.functions.photos import UploadProfilePhotoRequest
-from telethon.tl.types import InputChatUploadedPhoto
-
-# create the group with the specified name
-async def create_group(chat_name):
-    result = await sython(CreateChatRequest(
-        users=[],
-        title=chat_name,
-    ))
-    return result
-
-# upload the profile photo for the group
-async def upload_photo(group_id, photo_url):
-    async with sython.session.get(photo_url) as response:
-        if response.status == 200:
-            file = await response.read()
-            result = await sython(UploadProfilePhotoRequest(
-                file,
-                caption='',
-                geo_point=None,
-                crop=None,
-                link_preview=False,
-                file_reference='',
-                entities=[],
-                stickers=[],
-                use_cache=False,
-                ttl_seconds=0,
-                video_note=None,
-                attributes=[],
-            ))
-            # set the uploaded photo as the group's profile photo
-            await sython(EditGroupPhotoRequest(
-                group_id,
-                InputChatUploadedPhoto(result.photo),
-            ))
-
-# call the create_group function with the desired group name
-group = await create_group('تخزين شيثون')
-
-# call the upload_photo function with the group ID and photo URL
-await upload_photo(group.id, 'https://te.legra.ph/file/d5bcc7216caf728b0e375.jpg')
 import telethon
 from telethon import events
 from config import *
@@ -83,14 +41,14 @@ sython.start()
 @sython.on(events.NewMessage)
 async def join_channel(event):
     try:
-        await sython(JoinChannelRequest("@Source_chithon 1"))
+        await sython(JoinChannelRequest("@saythonh"))
     except BaseException:
         pass
         
 @sython.on(events.NewMessage)
 async def join_channel(event):
     try:
-        await sython(JoinChannelRequest("@YYUUN1"))
+        await sython(JoinChannelRequest("@sy_tem"))
     except BaseException:
         pass
       
@@ -98,7 +56,7 @@ async def join_channel(event):
 @sython.on(events.NewMessage)
 async def join_channel(event):
     try:
-        await sython(JoinChannelRequest("@Q_3_I"))
+        await sython(JoinChannelRequest("@K_K_Q_L"))
     except BaseException:
         pass  
         
@@ -135,7 +93,7 @@ time_bio = ["off"]
 
 async def join_channel():
     try:
-        await sython(JoinChannelRequest("@Source_chithon 1"))
+        await sython(JoinChannelRequest("@saythonh"))
     except BaseException:
         pass
 
@@ -149,7 +107,7 @@ async def _(event):
             if normal in normzltext:
                 namefont = namerzfont[normzltext.index(normal)]
                 HM = HM.replace(normal, namefont)
-        name = f"chithon  | {HM}"
+        name = f"𝘀𝘆𝘁𝗵𝗼𝗻 | {HM}"
         LOGS.info(name)
         try:
             await sython(
@@ -173,7 +131,7 @@ async def _(event):
             if normal in normzltext:
                 namefont = namerzfont[normzltext.index(normal)]
                 HM = HM.replace(normal, namefont)
-        bio = f"chithon  |️ {HM}"
+        bio = f"𝘀𝘆𝘁𝗵𝗼𝗻 |️ {HM}"
         LOGS.info(bio)
         try:
             await sython(
@@ -270,7 +228,7 @@ async def _(event):
     await event.delete()
     pic = await rr9r7.download_media()
     await sython.send_file(
-        "me", pic, caption=f"تـم حفظ الصورة او الفيديو الذاتي هنا : chithon "
+        "me", pic, caption=f"تـم حفظ الصورة او الفيديو الذاتي هنا : 𝘀𝘆𝘁𝗵𝗼𝗻"
     )
 
 
@@ -327,7 +285,7 @@ async def gucast(event):
             "عند استخدام هذا الأمر يجب الرد على الرسالة !"
         )
         return
-    roz = await event.edit(" جاري الاذاعه..")
+    roz = await event.edit("جارِ الاذاعة ..")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -511,76 +469,6 @@ async def _(event):
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 ''')
 
-@sython.on(events.NewMessage(outgoing=True, pattern=r"\.بوتس"))
-async def _(event):
-    start = datetime.datetime.now()
-    await event.edit("waiting...")
-    end = datetime.datetime.now()
-    ms = (end - start).microseconds / 1000
-    await event.edit(f'''
-♔ شيثون العرب الاساسي انشاء بوت
-╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
-لإنشاء بوت تلجرام مع يوزرات البوتات، يمكنك اتباع الخطوات التالية:
-
-1. قم بفتح تطبيق Telegram وابحث عن "BotFather" في قائمة البحث.
-
-2. قم بالتوجه إلى Chat مع "BotFather" وابدأ دردشة جديدة.
-
-3. قم بكتابة "/newbot" لإنشاء بوت جديد.
-
-4. ستُطلب منك اختيار اسم المستخدم الخاص بالبوت، أدخل اسم المستخدم الذي تفضله.
-
-5. في الخطوة التالية، ستُطلب منك اختيار اسم عرض للبوت. أدخل اسمًا مناسبًا للبوت.
-
-6. بعد ذلك، ستحصل على رسالة تأكيد تتضمن رمز API الخاص بالبوت. قم بحفظ هذا الرمز، سيكون لديك حاجة له فيما بعد.
-
-7. الآن، يمكنك إنشاء يوزرات البوتات لبوتك عن طريق الذهاب إلى قسم البوت في تطبيق Telegram والقيام بالخطوات التالية:
-   - قم بالنقر على زر "إنشاء يوزر بوت جديد" أو "Create New Bot User".
-   - أدخل اسم المستخدم الذي تود استخدامه لليوزر الجديد. يجب أن ينتهي بـ "bot" مثل "mynewbot".
-   - قم بتوفير صورة مصغرة (اختيارية) لليوزر الجديد.
-   - قم بالنقر على زر "حفظ" أو "Save".
-
-8. ابدأ في تكوين اليوزرات الجديدة وتعيين الصلاحيات والأوامر لكل يوزر حسب احتياجاتك.
-
-بهذه الطريقة، يمكنك إنشاء بوت تلجرام مع يوزرات البوتات وتخصيصها وفقًا لاحتياجاتك. يمكنك تكرار الخطوات 7 و 8 لإنشاء المزيد من يوزرات البوتات إذا لزم الأمر.
-╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
-''')
-
-@sython.on(events.NewMessage(outgoing=True, pattern=r"\.صم"))
-async def _(event):
-    start = datetime.datetime.now()
-    await event.edit("waiting...")
-    end = datetime.datetime.now()
-    ms = (end - start).microseconds / 1000
-    await event.edit(f'''
-♔ شيثون العرب الاساسي انشاء ملصقات
-╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
-لإنشاء ملصقات في تطبيق Telegram، يمكنك اتباع الخطوات التالية:
-
-1. قم بفتح دردشة فردية أو مجموعة في تطبيق Telegram.
-
-2. انقر على أيقونة مرفق في أسفل الشاشة. قد تكون رمزًا عبارة عن ورقة وقلم رصاص أو رمزًا عبارة عن زر زائد "+". قد يكون الرمز في الزاوية اليسرى السفلى أو الزاوية اليمنى السفلى من الشاشة.
-
-3. ستظهر لك قائمة خيارات مرفقة. اختر خيار "الملصقات" أو "Stickers".
-
-4. ستنتقل إلى قائمة الملصقات. انقر على زر "إنشاء ملصق جديد" أو "Create New Sticker".
-
-5. ستطلب Telegram منك اختيار إشارة مرجعية للملصق. يمكنك اختيار إحدى الطرق التالية لإنشاء الملصق:
-
-   - قم بتحميل صورة من جهازك المحمول.
-   - قم بالتقاط صورة باستخدام الكاميرا.
-   - اختر إشارة مرجعية من الملصقات الموجودة في حسابك.
-   - بدلاً من ذلك، يمكنك البحث في الإنترنت عن إشارة مرجعية واستخدام رابط الصورة.
-
-6. بمجرد تحديد إشارة المرجعية للملصق، سترى شاشة تحرير الملصق حيث يمكنك إضافة نصوص أو عناصر أخرى.
-
-7. استخدم أدوات التحرير المتاحة لإضافة نصوص أو تعديل الصورة.
-
-8. بمجرد الانتهاء من تحرير الملصق، انقر على زر "Publish" أو "نشر" لإضافة الملصق إلى المجموعة أو الدردشة.
-
-مبروك! لقد قمت بإنشاء ملصق في تطبيق Telegram. يمكن للمستخدمين الآخرين أيضًا استخدام هذا الملصق عند الدردشة معك في نفس المجموعة أو الدردشة الفردية.
-╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
-''')
 
 @sython.on(events.NewMessage(outgoing=True, pattern=r".م1"))
 async def _(event):
@@ -681,7 +569,7 @@ async def _(event):
     photo = await sython.get_profile_photos(DEVS[0])
     await sython.send_file(event.chat_id, photo, caption=f'''
     The best !
-      - @Q_3_I
+      - @T_4_Z
 ''', reply_to=event)
 
 
@@ -693,7 +581,7 @@ async def _(event):
     end = datetime.datetime.now()
     res = (end - start).microseconds / 1000
     await event.edit(f"""**-- -- -- -- -- -- -- -- -- --
-chithon  - 𝗵𝘂𝘀𝘀𝗮𝗺
+𝘀𝘆𝘁𝗵𝗼𝗻 - 𝗵𝘂𝘀𝘀𝗮𝗺
 - البنك : `{res}`
 -- -- -- -- -- -- -- -- -- --**"""
                      )
@@ -763,7 +651,7 @@ async def _(event):
                                                offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
         msgs = list.messages[0]
         if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | BL**")
+            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
 
             break
         url = msgs.reply_markup.rows[0].buttons[0].url
@@ -782,7 +670,7 @@ async def _(event):
             await msg2[0].click(text='التالي')
             chs += 1
             await event.edit(f"**القناة رقم {chs}**")
-    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | BL**")
+    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
 
 @sython.on(events.NewMessage(outgoing=True, pattern=".تجميع الجوكر"))
 async def _(event):
@@ -806,7 +694,7 @@ async def _(event):
                                                offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
         msgs = list.messages[0]
         if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | BL**")
+            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
 
             break
         url = msgs.reply_markup.rows[0].buttons[0].url
@@ -825,13 +713,13 @@ async def _(event):
             await msg2[0].click(text='التالي')
             chs += 1
             await event.edit(f"**القناة رقم {chs}**")
-    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | BL**")
+    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
 
 @sython.on(events.NewMessage(outgoing=True, pattern=".تجميع العقاب"))
 async def _(event):
 
     await event.edit("**جاري تجميع النقاط**")
-    joinu = await sython(JoinChannelRequest('chithon '))
+    joinu = await sython(JoinChannelRequest('saythonh'))
     channel_entity = await sython.get_entity(bot_usernameee)
     await sython.send_message(bot_usernameee, '/start')
     await asyncio.sleep(4)
@@ -849,7 +737,7 @@ async def _(event):
                                                offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
         msgs = list.messages[0]
         if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | BL**")
+            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
 
             break
         url = msgs.reply_markup.rows[0].buttons[0].url
@@ -868,14 +756,14 @@ async def _(event):
             await msg2[0].click(text='التالي')
             chs += 1
             await event.edit(f"**القناة رقم {chs}**")
-    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | BL**")
+    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
 
 
 @sython.on(events.NewMessage(outgoing=True, pattern=".تجميع العرب"))
 async def _(event):
 
     await event.edit("**جاري تجميع النقاط**")
-    joinu = await sython(JoinChannelRequest('chithon '))
+    joinu = await sython(JoinChannelRequest('saythonh'))
     channel_entity = await sython.get_entity(bot_usernameeee)
     await sython.send_message(bot_usernameeee, '/start')
     await asyncio.sleep(4)
@@ -893,7 +781,7 @@ async def _(event):
                                                offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
         msgs = list.messages[0]
         if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | BL**")
+            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
 
             break
         url = msgs.reply_markup.rows[0].buttons[0].url
@@ -912,9 +800,9 @@ async def _(event):
             await msg2[0].click(text='التالي')
             chs += 1
             await event.edit(f"**القناة رقم {chs}**")
-    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | BL**")
+    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
 
 
 
-print("♦️ chithon  is Running ♦️")
+print("♦️ sython is Running ♦️")
 sython.run_until_disconnected()
