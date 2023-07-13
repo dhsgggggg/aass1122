@@ -500,7 +500,7 @@ async def _(event):
     await event.edit(f'''
 ♔ شيثون العرب الاساسي
 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
-<img src="https://te.legra.ph/file/d5bcc7216caf728b0e375.jpg" />
+<video src="https://youtube.com/shorts/Jo7fr0yj048?feature=share/video.mp4" />
 ‎⿻┊‌‎‌‎𝙽𝙰𝙼𝙴 𖠄 {event.sender.username} ٫
 ‌‎⿻┊‌‎‌‎𝙿𝚈𝚃𝙷𝙾𝙽 𖠄 1.10.5 ٫
 ‌‎⿻┊‌‎‌‎𝙹𝙾𝙺𝙴𝚁 𖠄 1.25.2 ٫
