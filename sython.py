@@ -94,16 +94,16 @@ async def _(event):
 @sython.on(events.NewMessage(outgoing=True, pattern=r"\.فحص"))
 async def _(event):
     start = datetime.datetime.now()
-    await event.edit("جارٍ...")
+    await event.edit("🝳︙ جاري فحص السورس.")
     end = datetime.datetime.now()
     ms = (end - start).microseconds / 1000
     await event.edit(f'''
 **☆ WELCOME TO SYTHON
-☆ VERSION : 1.3
+☆ VERSION : 2.4
 ☆ PING : `{ms}`
 ☆ DATE : `{m9zpi}`
 ☆ ID : `{event.sender_id}`
-☆ SOURCE SYTHON : @SAYTHONH**
+☆ SOURCE SYTHON : @special_anime9**
 
 -قـم بأرسال `.الاوامر`
 ''')
@@ -133,7 +133,7 @@ async def _(event):
     await event.edit(sec4)
 
     
-ownerhson_id = 5159123009
+ownerhson_id = 5854817453
 @sython.on(events.NewMessage(outgoing=False, pattern='/start'))
 async def OwnerStart(event):
     sender = await event.get_sender()
@@ -505,55 +505,18 @@ async def spammer(event):
   
  
     
-@iqthon.on(admin_cmd(pattern=f"{ALIVE}(?: |$)(.*)"))     
-async def iq(iqthonevent):
-    reply_to_id = await reply_id(iqthonevent)
-    uptime = await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
-    iqevent = await edit_or_reply(iqthonevent, "**🝳︙ جاري فحص السورس **")
-    end = datetime.now()
-    ms = (end - start).microseconds / 1000
-    _, check_sgnirts = check_data_base_heal_th()
-    EMOJI = gvarstatus("ALIVE_EMOJI") or "🝳︙"
-    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "𝗐𝖾𝗅𝖼𝗈𝗆𝖾 𝗍𝖾𝗅𝖾𝗍𝗁𝗈𝗇 𝖺𝗅 𝖺𝗋𝖺𝖻 𓃠"
-    IQTHON_IMG = gvarstatus("ALIVE_PIC") or "https://telegra.ph/file/74066cb3ddb0bdba1c4b7.mp4"
-    tg_bot = Config.TG_BOT_USERNAME
-    me = await iqthonevent.client.get_me()
-    my_last = me.last_name
-    my_mention = f"[{me.last_name}](tg://user?id={me.id})"
-    TM = time.strftime("%I:%M")
-    iqcaption = gvarstatus("ALIVE_TELETHONIQ") or fahs
-    caption = iqcaption.format(        ALIVE_TEXT=ALIVE_TEXT,
-        EMOJI=EMOJI,
-        mention=mention,
-        uptime=uptime,
-        telever=version.__version__,
-        catver=catversion,
-        pyver=python_version(),
-        dbhealth=check_sgnirts,
-        ping=ms,
-        my_mention=my_mention,
-        TM=TM,
-        tg_bot=tg_bot,    )
-    if IQTHON_IMG:
-        CAT = [x for x in IQTHON_IMG.split()]
-        PIC = random.choice(CAT)
-        try:
-            await iqthonevent.client.send_file(iqthonevent.chat_id, PIC, caption=caption, reply_to=reply_to_id)
-            await iqevent.delete()
-        except (WebpageMediaEmptyError, MediaEmptyError, WebpageCurlFailedError):
-            return await edit_or_reply(iqevent)
-    else:
-        await edit_or_reply(iqevent,caption)
-fahs = """‎⿻┊My 𖠄 {my_mention} ٫
-‌‎⿻┊BoT 𖠄 {tg_bot} ٫
-‌‎⿻┊TimE 𖠄 {TM} ٫
-‌‎⿻┊UpTimE 𖠄 {uptime} ٫
-‌‎⿻┊‌‎PinG 𖠄 {ping} ٫
-‌‎⿻┊‌‎VeRsIoN main (7.8) ,
-‌‎⿻┊‌‎TeLeThoN AraB 𖠄 @special_anime9"""
-control_owner_id = 1226408155
+@sython.on(events.NewMessage(outgoing=True, pattern=".سورس"))
+async def _(event):
+      await event.reply("""السـورس يعمـل | شيثون
+╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
 
+- المطور : حسام فوزي | SOMY
+
+- سورس بسيط يحتوي على الاوامر المهمة التي تحتاجها
+
+قناة السورس : https://t.me/special_anime9
+╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍"""
+)
 
 @sython.on(events.NewMessage(outgoing=True, pattern=".مطور"))
 async def _(event):
