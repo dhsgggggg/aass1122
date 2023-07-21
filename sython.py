@@ -466,7 +466,7 @@ async def _(event):
 𖠄 J𝗼𝗸𝗲𝗿 𝘂𝘀𝗲𝗿𝗯𝗼𝘁 𖠄
 ''')
 
-@sbb_b.ar_cmd(pattern="تهكير$")
+@sython.on(events.NewMessage(outgoing="تهكير$")
 async def _(event):
     if event.reply_to_msg_id:
         reply_message = await event.get_reply_message()
@@ -501,7 +501,7 @@ async def _(event):
         )
 
 
-@sbb_b.ar_cmd(pattern="تهكير2$")
+@sython.on(events.NewMessage(outgoing="تهكير2$")
 async def _(event):
     animation_interval = 2
     animation_ttl = range(12)
@@ -524,7 +524,7 @@ async def _(event):
         await event.edit(animation_chars[i % 11])
 
 
-@sbb_b.ar_cmd(pattern="تهكير3$")
+@sython.on(events.NewMessage(outgoing="تهكير3$")
 async def _(event):
     animation_interval = 2
     animation_ttl = range(15)
